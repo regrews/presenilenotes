@@ -1,0 +1,39 @@
+﻿@model PresenileNotes.Web.Models.HomeModel
+<div class="page-header navbar navbar-fixed-top">
+    <div class="page-header-inner">
+        <div class="page-logo workspace">
+            @if (Model.Workspace != null)
+            {
+                <a href="@Url.Action("Home","Index",new { id=Model.Workspace.Id})" class="logo-default">
+                    <span>@Model.Workspace.Name</span>
+                </a>
+            }
+            <div class="menu-toggler sidebar-toggler"> </div>
+        </div>
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+        @if (Model.Workspaces != null)
+        {
+            <div class="top-menu" style="float:left;">
+                <ul class="nav navbar-nav navbar-left">
+
+                    @foreach (var item in Model.Workspaces)
+                    {
+                        <li>
+                            <a class="" style="float:left;" href="@Url.Action("Index","Home",new {id=item.Id})">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav" style="float:right;">
+                </ul>
+            </div>
+            <div class="top-menu-right">
+                <a class="navbar-brand" style="float:right;  " href="@Url.Action("Settings","Home")">
+                    <i class="icon-settings"></i>
+                </a>
+                <a class="navbar-brand" style="float:right;" href="javascript:;" id="addWorkspace">
+                    <i class="icon-plus"></i>
+                </a>
+            </div>
+        }
+    </div>
+</div>

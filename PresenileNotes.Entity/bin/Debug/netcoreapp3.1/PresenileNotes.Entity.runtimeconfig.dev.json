@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\gorkem\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\gorkem\\.nuget\\packages"
+    ]
+  }
+}

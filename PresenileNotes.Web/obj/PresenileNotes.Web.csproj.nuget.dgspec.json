@@ -1,0 +1,285 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Web\\PresenileNotes.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Entity\\PresenileNotes.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Entity\\PresenileNotes.Entity.csproj",
+        "projectName": "PresenileNotes.Entity",
+        "projectPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Entity\\PresenileNotes.Entity.csproj",
+        "packagesPath": "C:\\Users\\gorkem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gorkem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Infrastructure\\PresenileNotes.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Infrastructure\\PresenileNotes.Infrastructure.csproj",
+        "projectName": "PresenileNotes.Infrastructure",
+        "projectPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Infrastructure\\PresenileNotes.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\gorkem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gorkem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Entity\\PresenileNotes.Entity.csproj": {
+                "projectPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Entity\\PresenileNotes.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Service\\PresenileNotes.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Service\\PresenileNotes.Service.csproj",
+        "projectName": "PresenileNotes.Service",
+        "projectPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Service\\PresenileNotes.Service.csproj",
+        "packagesPath": "C:\\Users\\gorkem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gorkem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Entity\\PresenileNotes.Entity.csproj": {
+                "projectPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Entity\\PresenileNotes.Entity.csproj"
+              },
+              "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Infrastructure\\PresenileNotes.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Infrastructure\\PresenileNotes.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Web\\PresenileNotes.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Web\\PresenileNotes.Web.csproj",
+        "projectName": "PresenileNotes.Web",
+        "projectPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Web\\PresenileNotes.Web.csproj",
+        "packagesPath": "C:\\Users\\gorkem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\gorkem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Infrastructure\\PresenileNotes.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Infrastructure\\PresenileNotes.Infrastructure.csproj"
+              },
+              "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Service\\PresenileNotes.Service.csproj": {
+                "projectPath": "C:\\Users\\gorkem\\source\\repos\\PresenileNotes\\PresenileNotes.Service\\PresenileNotes.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

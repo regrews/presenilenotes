@@ -1,0 +1,10 @@
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\bin\Release\netcoreapp3.1\PresenileNotes.Entity.deps.json
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\bin\Release\netcoreapp3.1\PresenileNotes.Entity.runtimeconfig.json
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\bin\Release\netcoreapp3.1\PresenileNotes.Entity.runtimeconfig.dev.json
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\bin\Release\netcoreapp3.1\PresenileNotes.Entity.dll
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\bin\Release\netcoreapp3.1\PresenileNotes.Entity.pdb
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\obj\Release\netcoreapp3.1\PresenileNotes.Entity.csprojAssemblyReference.cache
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\obj\Release\netcoreapp3.1\PresenileNotes.Entity.AssemblyInfoInputs.cache
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\obj\Release\netcoreapp3.1\PresenileNotes.Entity.AssemblyInfo.cs
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\obj\Release\netcoreapp3.1\PresenileNotes.Entity.dll
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Entity\obj\Release\netcoreapp3.1\PresenileNotes.Entity.pdb

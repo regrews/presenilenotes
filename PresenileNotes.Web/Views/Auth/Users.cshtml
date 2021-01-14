@@ -1,0 +1,75 @@
+﻿@model PresenileNotes.Web.Models.HomeModel
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="icon-remove font-dark"></i>
+                            <span class="caption-subject bold uppercase">Users</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+                            <thead>
+                                <tr>
+                                    <th style="vertical-align: middle">First Name</th>
+                                    <th style="vertical-align: middle">Last Name</th>
+                                    <th style="vertical-align: middle">Email</th>
+                                    <th style="vertical-align: middle">Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var item in Model.Users)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td style="vertical-align: middle"> @item.FirstName </td>
+                                            <td style="vertical-align: middle"> @item.LastName </td>
+                                            <td style="vertical-align: middle"> @item.Email </td>
+                                            <td style="vertical-align: middle; align-items:center;">
+                                                @if (item.IsDeleted)
+                                                {
+                                                    <span class="label label-sm label-danger"> Deleted </span>
+                                                }
+                                                @if (!item.IsDeleted)
+                                                {
+                                                    <span class="label label-sm label-success"> Active </span>
+                                                }
+                                            </td>
+                                            <td style="vertical-align: middle">
+                                                @if (!item.IsDeleted)
+                                                {
+                                                    <a href="@Url.Action("Delete","Auth",new { id = item.Id })" class="btn btn-outline btn-circle dark btn-sm red">
+                                                        <i class="fa fa-remove"></i>Delete User
+                                                    </a>
+                                                }
+                                                @if (item.IsDeleted)
+                                                {
+                                                    <a href="@Url.Action("UnDelete","Auth",new { id = item.Id })" class="btn btn-outline btn-circle dark btn-sm green">
+                                                        <i class="fa fa-save"></i> Un Delete User
+                                                    </a>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT BODY -->
+</div>

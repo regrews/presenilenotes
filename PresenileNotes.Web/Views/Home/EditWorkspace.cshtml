@@ -1,0 +1,181 @@
+﻿@model PresenileNotes.Web.Models.HomeModel
+@{
+    ViewData["Title"] = "EditWorkspace";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <b>Edit Workspace</b><br />
+                            Workspace Name:
+                            <span class="caption-subject bold">
+                                <b>@Model.Workspace.Name</b>
+
+                                <a href="javascript:;" class="btn btn-outline btn-circle green btn-sm purple" id="editWorkspace">
+                                    <i class="fa fa-edit"></i> Edit
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+                            <thead>
+                                <tr>
+                                    <th style="vertical-align: middle">Category Name</th>
+                                    <th style="vertical-align: middle">Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var item in Model.Categories)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td style="vertical-align: middle"> @item.Name </td>
+                                            <td style="vertical-align: central; align-items:center;">
+                                                @if (item.IsActive)
+                                                {
+                                                    <span class="label label-sm label-success"> Active </span>
+                                                }
+                                                @if (!item.IsActive)
+                                                {
+                                                    <span class="label label-sm label-danger"> Passive </span>
+                                                }
+                                            </td>
+                                            <td style="vertical-align: middle">
+                                                <a href="javascript:;" class="btn btn-outline btn-circle green btn-sm purple" name="@item.Id" id="editCategory">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-outline btn-circle dark btn-sm black" id="deleteCategory" name="@item.Id">
+                                                    <i class="fa fa-edit"></i> Delete Category
+                                                </a>
+                                                @Html.Hidden(item.Id.ToString(), item.Id,new { @id=""})
+                                            </td>
+                                        </tr>
+
+                                    }
+                                }
+                            </tbody>
+                        </table><a href="@Url.Action("DeletedCategories", "Home",new { id=Model.Workspace.Id})" class="btn btn-outline btn-circle green btn-sm red">
+                            <i class="fa fa-remove"></i> Un Delete Categories
+                        </a>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT BODY -->
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        
+        $(document).on("click", "#deleteCategory", async function (e) {
+            var categoryId = $(e.target).attr('name');
+            var workspaceId = @Model.Workspace.Id;
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "All your notes will be deleted with category. You can get it back!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+              if (result.value) {
+                    $.ajax({
+                    url: '../../Home/DeleteCategory',
+                    type: 'POST',
+                        dataType: 'json',
+                        data: { categoryId: categoryId, workspaceId: workspaceId },
+                    success: function (data)
+                    {
+                    Swal.fire({
+                        type: 'success',
+                        title: 'OK',
+                        text:'Category was deleted.'})
+                    setTimeout(function () 
+                       { window.location.href = data; },2000);
+                    }
+                    });
+                }
+            })
+        });
+
+        $(document).on("click", "#editWorkspace", async function () {
+            var workspaceId = @Model.Workspace.Id;
+    const { value: formValues } = await Swal.fire({
+        title: 'Edit  @Model.Workspace.Name Name :',
+        showCancelButton: true,
+        html:
+            '<input id="workspaceName" placeholder="Workspace Name" class="swal2-input">',
+        focusConfirm: false,
+        preConfirm: () => {
+            return [
+                document.getElementById('workspaceName').value
+            ]
+        }
+    })
+            $.ajax({
+            url: '../../Home/EditWorkspace',
+            type: 'POST',
+            dataType: 'json',
+            data: { workspaceId: workspaceId, workspaceName: formValues[0] },
+            success: function (data) {
+            Swal.fire({
+                type: 'success',
+                title: 'OK',
+                text:'Workspace was updated.'
+            })
+            setTimeout(function () {
+
+                window.location.href = data;
+            },2000);
+        }
+    });
+
+        });
+
+        $(document).on("click", "#editCategory", async function (e) {
+            var id = $(e.target).attr('name');
+            var workspaceId = @Model.Workspace.Id;
+            const { value: formValues } = await Swal.fire({
+                title: 'Edit Category Name :',
+                showCancelButton: true,
+                html:
+                    '<input id="categoryName" placeholder="Category Name" class="swal2-input">',
+                focusConfirm: false,
+                preConfirm: () => {
+                    return [
+
+                        document.getElementById('categoryName').value
+                    ]
+                }
+            });
+              $.ajax({
+            url: '../../Home/EditCategory',
+            type: 'POST',
+            dataType: 'json',
+            data: { id: id, workspaceId: workspaceId, categoryName: formValues[0] },
+            success: function (data) {
+            Swal.fire({
+                type: 'success',
+                title: 'OK',
+                text:'Category was updated.'
+            })
+            setTimeout(function () {
+
+                window.location.href = data;
+            },2000);
+        }
+    });
+});
+
+    </script>
+}

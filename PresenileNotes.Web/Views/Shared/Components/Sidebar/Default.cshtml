@@ -1,0 +1,83 @@
+﻿@model PresenileNotes.Web.Models.HomeModel
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+            <li id="dashbord" class="nav-item">
+                <a href="@Url.Action("Index","Home")" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Home</span>
+
+                </a>
+            </li>
+            @if (Model.Workspace != null)
+            {
+                <li id="dashbord" class="nav-item">
+                    <a href="javascript:;" class="nav-link nav-toggle" id="addCategory">
+                        <i class="icon-plus"></i>
+                        <span class="title">Create Category</span>
+
+                    </a>
+                </li>
+            }
+            @if (Model.Categories != null)
+            {
+                @foreach (var item in Model.Categories)
+                {
+                    <li id="@item.Class" class="nav-item ">
+
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+                            <span class="title">@item.Name</span>
+                            <span id="select-@item.Class" class=""></span>
+                            <span id="Menuarrow" class="arrow "></span>
+                        </a>
+                        @if (Model.Notes != null)
+                        {
+                            <ul class="sub-menu">
+
+                                <li id="sub-blog" class="nav-item  ">
+
+                                    <a href="javascript:;" class="btn btn-outline btn-circle green btn-sm green-dark" style="text-align:center;" id="addNote" name="@item.Id">
+                                        Create New Note <i class="fa fa-plus"></i>
+
+                                        <span id="sub-blogselect" class=""></span>
+                                    </a>
+                                </li>
+                                @foreach (var note in Model.Notes)
+                                {
+                                    if (note != null)
+                                    {
+                                        if (note.CategoryId == item.Id)
+                                        {
+                                            <li id="@note.Class-@note.Id" class="nav-item  ">
+                                                <a href="@Url.Action("Note", "Home", new { id=note.Id})" class="nav-link ">
+                                                    <i class="fa fa-edit"></i>
+                                                    <span class="title">
+                                                        @note.Title
+                                                    </span>
+                                                    <span id="sub-@note.Class-@note.Id" class=""></span>
+                                                </a>
+                                            </li>
+                                        }
+                                    }
+                                }
+
+                            </ul>
+                        }
+                    </li>
+                }
+            }
+            <li id="Logout" class="nav-item">
+                <a href="~/Auth/LogOut" class="nav-link nav-toggle">
+                    <i class="icon-logout"></i>
+                    <span class="title">Sign out</span>
+
+                </a>
+            </li>
+        </ul>
+
+        <!-- END SIDEBAR MENU -->
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+</div>

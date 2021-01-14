@@ -1,0 +1,119 @@
+﻿@model PresenileNotes.Web.Models.HomeModel
+@{
+    ViewData["Title"] = "Note";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.Note != null)
+{
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet  ">
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <!--<form method="post" action="">
+                                <input type="number" name="value" />
+                                <input type="submit" />
+                            </form>-->
+                            <!--<form class="horizontal-form" method="POST" enctype="multipart/form-data">-->
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.HiddenFor(m => m.Note.Id, Model.Note.Id)
+                                            @Html.HiddenFor(m => m.Note.CreatedOn)
+                                            @Html.TextBoxFor(m => m.Note.Title, new { @class = "form-control note-title", @type = "text", @autocomplete = "off", @placeholder = "Başlık", @id = "title" })
+
+                                            <hr />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @Html.TextAreaFor(x => x.Note.Context, new { @id = "editor", @name = "editor", @cols = "200", @rows = "40", @class = "note-detail-text-editor" })
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-actions right">
+                                    <a href="@Url.Action("DeleteNote", "Home", new {id = Model.Note.Id})" class="btn btn-danger">
+                                        <i class="fa fa-edit" aria-hidden="true"></i> Delete
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- END FORM </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+}
+
+@section Scripts{
+    <script type="text/javascript" src="@Url.Content("~/ckeditor/ckeditor.js")"></script>
+    <script type="text/javascript">
+        //CKEDITOR.disableAutoInline = true;
+        // var introduction = document.getElementById('editor');
+        //introduction.setAttribute('contenteditable', true);
+         $(function () {
+            $('#@Model.Category.Class').addClass('nav-item active open');
+            $('#@Model.Note.Class-@Model.Note.Id').addClass('nav-item active open');
+            $('#select-@Model.Category.Class').addClass('selected');
+            $('#photoarrow').addClass('arrow open');
+            $('#sub-@Model.Note.Class-@Model.Note.Id').addClass('selected');
+        });
+        CKEDITOR.inline('editor', {
+        });
+        var editor = CKEDITOR.inline('editor');
+        CKEDITOR.instances.editor.on('change', function () {
+
+            var data = CKEDITOR.instances.editor.getData();
+            var title = $("#title").val();
+            var noteId = $("#Note_Id").val();
+            $.ajax({
+                url: '../../Home/Note',
+                type: 'POST',
+                dataType: 'json',
+                data: { noteId: noteId, title: title, context: data },
+                success: function (data) {
+                }
+            });
+        });
+        $("#title").change(function () {
+            var data = CKEDITOR.instances.editor.getData();
+            var title = $("#title").val();
+            var noteId = $("#Note_Id").val();
+            $.ajax({
+                url: '../../Home/Note',
+                type: 'POST',
+                dataType: 'json',
+                data: { noteId: noteId, title: title, context: data },
+                success: function (data) {
+                }
+            });
+        });
+        window.onunload = function (e) {
+             var data = CKEDITOR.instances.editor.getData();
+            var noteId = $("#Note_Id").val();
+            $.ajax({
+                url: '../../Home/ModifiedNote',
+                type: 'POST',
+                dataType: 'json',
+                data: { noteId: noteId,  context: data },
+                success: function (data) {
+                }
+            });
+        };
+    </script>
+}

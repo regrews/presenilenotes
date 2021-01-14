@@ -1,0 +1,13 @@
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\bin\Debug\netcoreapp3.1\PresenileNotes.Repository.deps.json
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\bin\Debug\netcoreapp3.1\PresenileNotes.Repository.dll
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\obj\Debug\netcoreapp3.1\PresenileNotes.Repository.csprojAssemblyReference.cache
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\obj\Debug\netcoreapp3.1\PresenileNotes.Repository.AssemblyInfoInputs.cache
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\obj\Debug\netcoreapp3.1\PresenileNotes.Repository.AssemblyInfo.cs
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\bin\Debug\netcoreapp3.1\PresenileNotes.Repository.pdb
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\obj\Debug\netcoreapp3.1\PresenileNotes.Repository.dll
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\obj\Debug\netcoreapp3.1\PresenileNotes.Repository.pdb
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\bin\Debug\netcoreapp3.1\PresenileNotes.Entity.dll
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\bin\Debug\netcoreapp3.1\PresenileNotes.Infrastructure.dll
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\bin\Debug\netcoreapp3.1\PresenileNotes.Entity.pdb
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\bin\Debug\netcoreapp3.1\PresenileNotes.Infrastructure.pdb
+C:\Users\gorkem\source\repos\PresenileNotes\PresenileNotes.Repository\obj\Debug\netcoreapp3.1\PresenileNotes.Repository.csproj.CopyComplete

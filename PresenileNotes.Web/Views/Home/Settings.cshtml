@@ -1,0 +1,146 @@
+﻿@model PresenileNotes.Web.Models.HomeModel
+@{
+    ViewData["Title"] = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light bordered">
+                    <div class="portlet-body">
+                        <div class="portlet-title">
+                            <div class="caption font-dark">
+                                <i class="icon-note font-dark"></i>
+                                <span class="caption-subject bold uppercase">Workspaces</span>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+                            <thead>
+                                <tr>
+                                    <th style="vertical-align: middle">Status</th>
+                                    <th style="vertical-align: middle">Workspace Name</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var item in Model.Workspaces)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td style="vertical-align: central; align-items:center;">
+                                                @if (item.IsActive)
+                                                {
+                                                    <span class="label label-sm label-success"> Active </span>
+                                                }
+                                                @if (!item.IsActive)
+                                                {
+                                                    <span class="label label-sm label-danger"> Passive </span>
+                                                }
+                                            </td>
+                                            <td style="vertical-align: middle"> @item.Name </td>
+                                            <td style="vertical-align: central">
+                                                <a href="@Url.Action("EditWorkspace", "Home", new {id = item.Id})" class="btn btn-outline btn-circle green btn-sm purple">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-outline btn-circle dark btn-sm red" id="deleteWorkspace" name="@item.Id">
+                                                    <i class="fa fa-remove"></i> Delete Workspace
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                        <div class="portlet-title">
+                            <div class="caption font-dark">
+                                <i class="icon-note font-dark"></i>
+                                <span class="caption-subject bold uppercase">Deleted Notes</span>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+                            <thead>
+                                <tr>
+                                    <th style="vertical-align: middle">Status</th>
+                                    <th style="vertical-align: middle">Note Title</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var x in Model.Notes)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td style="vertical-align: central; align-items:center;">
+                                                @if (x.IsActive)
+                                                {
+                                                    <span class="label label-sm label-danger"> Deleted </span>
+                                                }
+                                                @if (!x.IsActive)
+                                                {
+                                                    <span class="label label-sm label-danger"> Passive </span>
+                                                }
+                                            </td>
+                                            <td style="vertical-align: middle"> @x.Title </td>
+                                            <td style="vertical-align: middle">
+                                                <a href="@Url.Action("RemoveNote", "Home", new {id = x.Id})" class="btn btn-outline btn-circle green btn-sm blue">
+                                                    <i class="fa fa-save"></i> Remove Note
+                                                </a>
+                                                <a href="@Url.Action("UnDeleteNote", "Home", new {id = x.Id})" class="btn btn-outline btn-circle dark btn-sm red">
+                                                    <i class="fa fa-remove"></i> Un Delete Note
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="@Url.Action("DeletedWorkspaces", "Home")" class="btn btn-outline btn-circle green btn-sm red">
+                        <i class="fa fa-remove"></i> Show Deleted Workspaces
+                    </a>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+        </div>
+    </div>
+</div>
+<!-- END CONTENT BODY -->
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).on("click", "#deleteWorkspace", async function (e) {
+            var workspaceId = $(e.target).attr('name');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "All your notes will be deleted with workspace. You can get it back!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        url: '../../Home/DeleteWorkspace',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: { workspaceId: workspaceId },
+                        success: function (data) {
+                            Swal.fire({
+                                type: 'success',
+                                title: 'OK',
+                                text: 'Workspace was deleted.'
+                            })
+                            setTimeout(function () { window.location.href = data; }, 2000);
+                        }
+                    });
+                }
+            })
+        });
+    </script>
+}
